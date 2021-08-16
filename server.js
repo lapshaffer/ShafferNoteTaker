@@ -17,7 +17,7 @@ app.get('/notes', (req, res) => {
 
 });
 // GET * request to return index.html
-app.get('/', (req, res) => {
+app.get('/*', (req, res) => {
 
 });
 // GET /api/notes to return db.json file as valid json
