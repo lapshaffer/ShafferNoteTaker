@@ -1,3 +1,7 @@
+// TO-DO:
+  // Have remaining GET requests lead to their designated html files
+  // Have GET request for /notes perform getNotes function
+    // module.exports index.js file to be able to use getNotes
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
