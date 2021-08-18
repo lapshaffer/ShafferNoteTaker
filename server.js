@@ -1,13 +1,9 @@
 // TO-DO:
-  // Have remaining GET requests lead to their designated html files
-  // Have GET request for /notes perform getNotes function
-    // module.exports index.js file to be able to use getNotes
+  // Get /notes page to show and update db.json
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
-// const functs = require('./public/assets/js/index');
-// const db = require('./db/db.json');
 
 const PORT = process.env.PORT || 3001
 
@@ -18,10 +14,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 // Insert code here to make note-taking capabilities work
-// GET /notes request for getNotes and return notes.html
+// GET /notes request to return notes.html
 app.get('/notes', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/notes.html'));
-  // functs.getAndRenderNotes(db);
 });
 // GET * request to return index.html
 app.get('/*', (req, res) => {
