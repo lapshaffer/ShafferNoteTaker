@@ -68,25 +68,6 @@ app.post('/api/notes', (req, res) => {
 // Optional DELETE request for deleting notes
 // app.delete();
 
-// // Function to write new notes to the db.json file
-// fs.readFile("./db/db.json", "utf8", (err, data) => {
-//   if (err) {
-//     console.log(err);
-//   }
-//   // Create array to hold old notes
-//   const notesArray = JSON.parse(data);
-//   // push the new note to this array
-//   notesArray.push(newNote);
-//   // write the new array over the file
-//   fs.writeFile(`./db/db.json`, JSON.stringify(notesArray), (err) =>
-//     err
-//       ? console.error(err)
-//       : console.log(
-//         `New note ${newNote.title} has been saved!`
-//       )
-//   );
-// });
-
 app.listen(PORT, () =>
   console.log(`App listening at http://localhost:${PORT} 🚀`)
 );
