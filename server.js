@@ -6,6 +6,7 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
+const functs = require('./public/assets/js/index');
 
 const PORT = process.env.PORT || 3001
 
@@ -19,6 +20,7 @@ app.use(express.static('public'));
 // GET /notes request for getNotes and return notes.html
 app.get('/notes', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/notes.html'));
+  functs.getNotes();
 });
 // GET * request to return index.html
 app.get('/*', (req, res) => {
