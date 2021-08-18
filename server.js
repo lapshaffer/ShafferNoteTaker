@@ -18,11 +18,11 @@ app.use(express.static('public'));
 // Insert code here to make note-taking capabilities work
 // GET /notes request for getNotes and return notes.html
 app.get('/notes', (req, res) => {
-
+  res.sendFile(path.join(__dirname, 'public/notes.html'));
 });
 // GET * request to return index.html
 app.get('/*', (req, res) => {
-
+  res.sendFile(path.join(__dirname, 'public/index.html'))
 });
 // GET /api/notes to return db.json file as valid json
 app.get('/api/notes', (req, res) => {
