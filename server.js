@@ -18,10 +18,6 @@ app.use(express.static('public'));
 app.get('/notes', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/notes.html'));
 });
-// GET * request to return index.html
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public/index.html'))
-});
 // GET /api/notes to return db.json file as valid json
 app.get('/api/notes', (req, res) => {
   fs.readFile("./db/db.json", "utf8", (err, data) => {
@@ -65,6 +61,12 @@ app.post('/api/notes', (req, res) => {
 });
 // Optional DELETE request for deleting notes
 // app.delete();
+
+// GET * request to return index.html
+// Any wildcard path needs to be declared after every other route in the file, as it catches all instances not already specified
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/index.html'))
+});
 
 app.listen(PORT, () =>
   console.log(`App listening at http://localhost:${PORT} 🚀`)
