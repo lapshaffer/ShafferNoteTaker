@@ -19,7 +19,7 @@ app.get('/notes', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/notes.html'));
 });
 // GET * request to return index.html
-app.get('/*', (req, res) => {
+app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/index.html'))
 });
 // GET /api/notes to return db.json file as valid json
