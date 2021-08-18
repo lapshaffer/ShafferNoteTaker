@@ -1,5 +1,3 @@
-// TO-DO:
-  // Get /notes page to show and update db.json
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
@@ -14,10 +12,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 // Insert code here to make note-taking capabilities work
+
 // GET /notes request to return notes.html
 app.get('/notes', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/notes.html'));
 });
+
 // GET /api/notes to return db.json file as valid json
 app.get('/api/notes', (req, res) => {
   fs.readFile("./db/db.json", "utf8", (err, data) => {
@@ -28,6 +28,7 @@ app.get('/api/notes', (req, res) => {
     res.json(notesArray);
   });
 });
+
 // POST /api/notes request to receive a new note on the request body, add to db.json, and return new note to client
 // Give each note a unique id when saved w/ uuid
 app.post('/api/notes', (req, res) => {
@@ -59,11 +60,9 @@ app.post('/api/notes', (req, res) => {
     }
   });
 });
-// Optional DELETE request for deleting notes
-// app.delete();
 
 // GET * request to return index.html
-// Any wildcard path needs to be declared after every other route in the file, as it catches all instances not already specified
+// Any wildcard path needs to be declared after every other route in the file, as it catches all instances not already 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/index.html'))
 });
