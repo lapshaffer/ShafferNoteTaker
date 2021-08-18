@@ -20,7 +20,7 @@ app.use(express.static('public'));
 // GET /notes request for getNotes and return notes.html
 app.get('/notes', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/notes.html'));
-  functs.getNotes();
+  functs.getAndRenderNotes();
 });
 // GET * request to return index.html
 app.get('/*', (req, res) => {
